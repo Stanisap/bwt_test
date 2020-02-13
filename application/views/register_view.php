@@ -1,0 +1,1 @@
+<h1>Hello. You are on a register page</h1>
