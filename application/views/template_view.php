@@ -18,36 +18,29 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" href="/">Brand</a>
+					<a class="navbar-brand" href="/">BWT TEST</a>
 				</div>
 
 				<!-- Collect the nav links, forms, and other content for toggling -->
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav">
-						<li class="active"><a href="#">Главная<span class="sr-only">(current)</span></a></li>
-						<li><a href="<?= $_SERVER['HTTP_HOST'] . '/show_feetback' ?>">Посмотрет все фитбеки</a></li>
+						<li class="active"><a href="/">Главная<span class="sr-only">(current)</span></a></li>
+						<li><a href="/show_feetback">Посмотреть все фитбеки</a></li>
 					</ul>
 					
 					<ul class="nav navbar-nav navbar-right">
-						<li><a href="#">Link</a></li>
-						<li class="dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-							<ul class="dropdown-menu">
-								<li><a href="#">Action</a></li>
-								<li><a href="#">Another action</a></li>
-								<li><a href="#">Something else here</a></li>
-								<li role="separator" class="divider"></li>
-								<li><a href="#">Separated link</a></li>
-							</ul>
-						</li>
+						<li><a href="/register" class="btn btn-default active" role="button" aria-disabled="true" style="    padding: 5px 15px; margin-top: 8px;">Sign in</a></li>
+						
 					</ul>
 				</div><!-- /.navbar-collapse -->
 			</div><!-- /.container-fluid -->
 		</nav>
 	</header>
 	<?php include 'application/views/' . $content_view; ?>
+	
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+	<script src="../../assets/js/main.js"></script>
 </body>
 </html>

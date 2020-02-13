@@ -1,3 +1,1 @@
-<?php
-echo "<pre>";
-var_dump($_SERVER);
+<h1>This is a main page</h1>

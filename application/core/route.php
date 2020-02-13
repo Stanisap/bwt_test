@@ -24,7 +24,7 @@ class Route
 		{
 			$action_name = $routes[2];
 		}
-
+		
 		// добавляем префиксы
 		$model_name = 'Model_' . $controller_name;
 		$controller_name = 'Controller_' . $controller_name;
@@ -53,7 +53,7 @@ class Route
 			сделаем редирект на страницу 404*/
 			Route::ErrorPage404();
 		}
-
+		
 		// создаем контоллер
 		$controller = null;
 		if (class_exists($controller_name)) 
