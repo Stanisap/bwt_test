@@ -1,14 +1,14 @@
 <div class="container">
 	
 	<!-- Форма для регистрации -->
-	<form role="form" class="form-horizontal" method="POST">
+	<form role="form" class="form-horizontal" method="POST" action="/register">
 		<!-- block for first name -->
 		<div class="form-group has-feedback">
 			<label for="first-name" class="control-label col-xs-3">Имя:</label>
 			<div class="col-xs-6">
 				<div class="input-group">
 					<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>         
-					<input type="text" class="form-control" required="required" name="first-name" pattern="[A-Za-z]{3,}">
+					<input type="text" class="form-control" required="required" name="first_name" pattern="[A-Za-z]{3,}">
 				</div>
 				<span class="glyphicon form-control-feedback"></span>
 			</div>
@@ -19,7 +19,7 @@
 			<div class="col-xs-6">
 				<div class="input-group">
 					<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>         
-					<input type="text" class="form-control" required="required" name="last-name" pattern="[A-Za-z]{3,}">
+					<input type="text" class="form-control" required="required" name="last_name" pattern="[A-Za-z]{3,}">
 				</div>
 				<span class="glyphicon form-control-feedback"></span>
 			</div>
@@ -42,12 +42,12 @@
 			<div class="col-xs-6">
 				<div class="col-xs-8">
 					<label class="radio-inline">
-						<input type="radio" name="genderRadios" value="male"><p>Мужской</p>
+						<input type="radio" name="sex" value="male"><p>Мужской</p>
 					</label>
 				</div>
 				<div class="col-xs-4">
 					<label class="radio-inline">
-						<input type="radio" name="genderRadios" value="female"><p>Женский</p>
+						<input type="radio" name="sex" value="female"><p>Женский</p>
 					</label>
 				</div>
 			</div>
