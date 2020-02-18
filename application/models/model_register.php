@@ -3,20 +3,33 @@
  * 
  */
 
-
-
-class Model_Register extends Model
-{
+class Model_Register extends Model {
 	
-	public function get_data()
-	{
-		return $this->db;
+	public function get_data() {
+	
 	}
 
 	public function set_data($data) {
-		
-		$this->db->query("INSERT INTO users (first_name, last_name, email, sex, date_birth)".
-			" VALUES ('" . $data['first_name'] . "', '" . $data['last_name'] . "', ".
-			"'" . $data['email'] . "', '" . $data['sex'] . "', '" . $data['date'] . "')");
+		if ($this->is_in_data($data, array('first_name', 'last_name', 'email'))) {
+			if ($this->is_user($data)) {
+				$this->db->query($this->query_to_add("users", $data), $data);
+				setcookie('id', $this->db->insertId(), time()+3600, '/');
+			} else {
+				echo "<h1>Пользователь с таким email уже существовует!</h1>";
+			}
+		} else {
+			echo "<h1>Не все обязательные поля заполнены!</h1>";
+		}
+	}
+
+	private function is_user($data) {
+		$params = [
+			'email' => $data['email'],
+		];
+		if ($this->db->column($this->query_get_row("users", "email"), $params) > 0) {
+			return false;
+		} else {
+			return true;
+		}
 	}
 }

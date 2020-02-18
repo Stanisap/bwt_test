@@ -4,8 +4,6 @@
 $(function() {
 	//при нажатии на кнопку с id="save"
 	$('#save').click(function() {
-	//переменная formValid
-		var formValid = true;
 		//перебрать все элементы управления input 
 		$('input').each(function() {
 			//найти предков, которые имеют класс .form-group, для установления success/error
@@ -23,16 +21,7 @@ $(function() {
 				formGroup.addClass('has-error').removeClass('has-success');
 				//добавить к glyphicon класс glyphicon-remove, удалить glyphicon-ok
 				glyphicon.addClass('glyphicon-remove').removeClass('glyphicon-ok');
-				//отметить форму как невалидную 
-				formValid = false;  
 			}
 		});
-		//если форма валидна, то
-		if (formValid) {
-			//сркыть модальное окно
-			$('#myModal').modal('hide');
-			//отобразить сообщение об успехе
-			$('#success-alert').removeClass('hidden');
-		}
 	});
 });

@@ -1,0 +1,12 @@
+{
+    "name": "user/bwt_test",
+    "authors": [
+        {
+            "name": "Stanislav Polushin",
+            "email": "stanisap85@gmail.com"
+        }
+    ],
+    "require": {
+        "guzzlehttp/guzzle": "^6.5"
+    }
+}

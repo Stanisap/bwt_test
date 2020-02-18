@@ -59,7 +59,7 @@
 			<div class="col-xs-6">
 				<div class="input-group">
 					<span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
-					<input type="date" name="date" class="form-control" required="required">
+					<input type="date" name="date_birth" class="form-control">
 				</div>
 			</div>
 		</div> <!-- /.block for date of birth-->

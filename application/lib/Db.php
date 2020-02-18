@@ -13,17 +13,25 @@ class Db {
 
 	// против sql инъекций
 	public function query($sql, $params = []) {
-		// Подготавливает запрос к выполнению и возвращает связанный с этим запросом объект
-		$stmt = $this->db->prepare($sql);
+		$stmt;
+		try {
+			$stmt = $this->db->prepare($sql);
 
-		if (!empty($params)) {
-			foreach ($params as $key => $val) {
+			if (!empty($params)) {
+
+				foreach ($params as $key => $val) {
+					if ($val != "")
 				// Связывает параметр с заданным значением
-				$stmt->bindValue(':' . $key, $val);
+						$stmt->bindValue(':' . $key, $val);
+				}
 			}
+			// Запускает подготовленный запрос на выполнение
+			$stmt->execute();
+		} catch (Exception $e) {
+			echo $e->getMessage();
 		}
-		// Запускает подготовленный запрос на выполнение
-		$stmt->execute();
+		// Подготавливает запрос к выполнению и возвращает связанный с этим запросом объект
+		
 		return $stmt;
 	}
 
@@ -35,6 +43,10 @@ class Db {
 	public function column($sql, $params = []) {
 		$result = $this->query($sql, $params);
 		return $result->fetchColumn();
+	}
+
+	public function insertId() {
+		return $this->db->lastInsertId();
 	}
 
 }
