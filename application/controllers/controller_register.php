@@ -5,14 +5,13 @@
 
 class Controller_Register extends Controller {
 	
-	function __construct()
-	{
+	function __construct() {
 		$this->model = new Model_Register();
 		$this->view = new View();
 	}
 
 	function action_index() {
-		if (isset($_POST) and !empty($_POST)) {
+		if (isset($_POST) && !empty($_POST)) {
 			$this->model->set_data($_POST);
 		}
 		

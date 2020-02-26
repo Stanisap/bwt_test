@@ -42,7 +42,7 @@ class Route
 		// подцепляем файл с классом контроллера
 		$controller_file = strtolower($controller_name) . '.php';
 		$controller_path = 'application/controllers/' . $controller_file;
-
+		
 		if (file_exists($controller_path))
 		{
 			include 'application/controllers/' . $controller_file;
@@ -53,7 +53,7 @@ class Route
 			сделаем редирект на страницу 404*/
 			Route::ErrorPage404();
 		}
-		
+
 		// создаем контоллер
 		$controller = null;
 		if (class_exists($controller_name)) 
@@ -65,7 +65,7 @@ class Route
 		{
 			Route::ErrorPage404();
 		}
-
+		
 		$action = $action_name;
 
 		if (method_exists($controller, $action))

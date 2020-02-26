@@ -49,4 +49,31 @@ class Db {
 		return $this->db->lastInsertId();
 	}
 
+	// запрос на добавления записей в таблюцу
+	public function query_to_add($tableName, $data) {
+		$keys1 = [];
+		$keys2 = array_keys($data);
+		for ($i = 0; $i < count($keys2); $i++) {
+			if ($data["$keys2[$i]"] != "") {
+				array_push($keys1, $keys2[$i]);
+				$keys2[$i] = ':' . $keys2[$i];
+			} else {
+				unset($keys2[$i]);
+			}
+		}
+		$sql = "INSERT INTO $tableName (";
+		$columnName = implode(', ', $keys1);
+		$valueName = implode(', ', $keys2);
+		$sql = "$sql $columnName) VALUES ( $valueName )";
+		return $sql;
+
+	}
+
+	public function query_get_row($tableName, $key) {
+		$sql = "SELECT COUNT(*) FROM $tableName WHERE ";
+		$sql = "$sql $key LIKE :$key";
+		return $sql;
+
+	} 
+
 }
