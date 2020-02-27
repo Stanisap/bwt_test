@@ -30,7 +30,6 @@ class Db {
 		} catch (Exception $e) {
 			echo $e->getMessage();
 		}
-		// Подготавливает запрос к выполнению и возвращает связанный с этим запросом объект
 		
 		return $stmt;
 	}
@@ -45,6 +44,7 @@ class Db {
 		return $result->fetchColumn();
 	}
 
+	// получение id добавленой записи
 	public function insertId() {
 		return $this->db->lastInsertId();
 	}
@@ -69,11 +69,21 @@ class Db {
 
 	}
 
+	// Запрос для получения колличества по ключю
 	public function query_get_row($tableName, $key) {
 		$sql = "SELECT COUNT(*) FROM $tableName WHERE ";
 		$sql = "$sql $key LIKE :$key";
 		return $sql;
 
 	} 
+
+	// запрос для получения всех данный из таблицы
+	public function query_get_all($tableName) {
+		return "SELECT * FROM $tableName";
+	}
+
+	public function query_by_id($tableName) {
+		return "SELECT * FROM $tableName WHERE id = :id";
+	}
 
 }

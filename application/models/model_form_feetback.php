@@ -13,9 +13,13 @@ class Model_Form_Feetback extends Model {
 
 	public function set_data($data) {
 		if (empty($data['g-recaptcha-response'])) 
-			exit('<p class="error">Заполните капчу</p>');
+			exit('<p class="error">Заполните капчу</p><a href="/form_feetback">вернуться</a>');
 		if ($this->check_captcha($data['g-recaptcha-response'])) {
-			// to add the data into db
+			$params = [
+				'user_id' => $data['user_id'],
+				'text' => strip_tags($data['text']),
+			];
+			$this->db->query($this->db->query_to_add('feetback', $params), $params);
 			header('Location: /show_feetback');
 		}
 

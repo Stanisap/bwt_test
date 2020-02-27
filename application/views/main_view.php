@@ -1,4 +1,5 @@
 <div class="container">
+	<h2 style="text-align: center;">Погода в Запорожье</h2>
 	<div class="row row-offcanvas row-offcanvas-right">
 		<div class="col-xs-12 col-sm-9">
 			<div class="row">
@@ -6,7 +7,7 @@
 					for ($i = 2; $i <= 23; $i = $i + 3) {
 						?>
 						<div class="col-sm-4 col-md-3">
-							<div class="thumbnail" style="height: 100px;background: #add3ef38;">
+							<div class="thumbnail" style="height: 110px;background: #add3ef38;">
 								<div class="img" style="width: 80px; height: 80px; display: inline;">
 									<?= $data["$i"]['icon']; ?>
 									<h4 style="float: none;position: absolute;top: 0;right: 20px"><?= "$i:00" ?></h4>
