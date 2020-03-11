@@ -2,13 +2,16 @@
 /**
  * 
  */
+namespace application\models;
 
-class Model_Register extends Model
+use application\core\Model;
+
+class AccountModel extends Model
 {
     
-    public function get_data() {}
+    public function getData() {}
 
-    public function set_data($data)
+    public function setData($data)
     {
         if ($this->isInData($data, array('first_name', 'last_name', 'email'))) {
             if ($this->isUser($data)) {

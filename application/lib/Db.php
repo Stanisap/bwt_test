@@ -3,6 +3,8 @@
 /**
  * This class connections with a database and does queries
  */
+namespace application\lib;
+
 class DB
 {
     private static $_instance = null;
@@ -10,11 +12,11 @@ class DB
     private function __construct()
     {
         $config = require 'application/config/db.php';
-        self::$_instance = new PDO(
+        self::$_instance = new \PDO(
             'mysql:host='.$config['host'].';dbname='.$config['name'].'',
             $config['user'],
             $config['password'],
-            [PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES 'utf8'"]
+            [\PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES 'utf8'"]
         );
     }
 
@@ -57,7 +59,7 @@ class DB
     public function row($sql, $params = [])
     {
         $result = $this->query($sql, $params);
-        return $result->fetchAll(PDO::FETCH_ASSOC);
+        return $result->fetchAll(\PDO::FETCH_ASSOC);
     }
 
     public function column($sql, $params = [])

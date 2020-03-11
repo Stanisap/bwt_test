@@ -2,3 +2,4 @@
 <p>
 <img src="/assets/images/404.png" style="width: 400px; height: auto;">
 </p>
+<a href="/">Вернуться на главную</a>

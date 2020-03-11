@@ -2,7 +2,8 @@
 /**
  * 
  */
-include 'application/lib/DB.php';
+namespace application\core;
+
 
 abstract class Model
 {
@@ -10,10 +11,10 @@ abstract class Model
 
     public function __construct()
     {
-        $this->db = DB::getInstance();
+        $this->db = \application\lib\DB::getInstance();
     }
     
-    abstract function get_data();
+    abstract function getData();
 
     // Проверка на пустоту значений в запросе
     public function isInData($data, $keys = [])

@@ -3,6 +3,10 @@ h3, h4, h5, h6 {
 	float: right;
 }
 
+p {
+	margin-bottom: 0;
+}
+
 .tooltip {
 	position: inherit;
     opacity: unset;

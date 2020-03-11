@@ -2,13 +2,15 @@
 /**
  * 
  */
-require_once __DIR__ . '/../../vendor/autoload.php';
-require __DIR__ . '/../lib/parser.php';
+namespace application\models;
 
-class Model_Main extends Model
+use application\core\Model;
+
+
+class MainModel extends Model
 {
 
-    public function get_data()
+    public function getData()
     {
         $url = 'https://www.gismeteo.ua/weather-zaporizhia-5093/';
         $pattern_temp = '#<span class="unit unit_temperature_c.+?<\/span>#';
@@ -18,14 +20,14 @@ class Model_Main extends Model
         $pattern_icon_hours = '#<span class="tooltip.+?<\/span>#';
         $pattern_wind = '#<span class="unit unit_wind_m_s.+[\w\W]+?<\/span>#';
 
-        $parser = new Parser($url);
+        $parser = new \application\lib\Parser($url);
 
-        $data_temp = $parser->get_array_data($pattern_temp);
-        $data_d = $parser->get_array_data($pattern_date);
-        $data_wtype = $parser->get_attribute($pattern_wtype, 'data-text');
-        $data_icon = $parser->get_array_html($pattern_icon);
-        $data_icon = array_merge($data_icon, $parser->get_array_html($pattern_icon_hours));
-        $data_wind = $parser->get_array_data($pattern_wind);
+        $data_temp = $parser->getArrayData($pattern_temp);
+        $data_d = $parser->getArrayData($pattern_date);
+        $data_wtype = $parser->getAttribute($pattern_wtype, 'data-text');
+        $data_icon = $parser->getArrayHtml($pattern_icon);
+        $data_icon = array_merge($data_icon, $parser->getArrayHtml($pattern_icon_hours));
+        $data_wind = $parser->getArrayData($pattern_wind);
 
         $data = [
             'today' => $data_d[1],
@@ -73,6 +75,7 @@ class Model_Main extends Model
                 'wind' => $data_wind[7]
             ],
         ];
+        
         return $data;
     }
 }
